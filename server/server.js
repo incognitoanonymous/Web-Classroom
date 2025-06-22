@@ -7,10 +7,11 @@ import mongoose from 'mongoose'
 mongoose.Promise = global.Promise
 
 // Koneksi ke MongoDB
-mongoose.connect(config.mongoUri, {
+mongoose.connect('mongodb://localhost:27017/web-classroom', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
+
 .then(() => {
   console.log('✅ Connected to MongoDB at', config.mongoUri)
 })
