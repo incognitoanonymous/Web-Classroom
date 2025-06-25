@@ -7,11 +7,10 @@ import mongoose from 'mongoose'
 mongoose.Promise = global.Promise
 
 // Koneksi ke MongoDB
-mongoose.connect('mongodb://localhost:27017/web-classroom', {
+mongoose.connect('mongodb+srv://WEB:CLASSROOM@classroom.q23afo1.mongodb.net/web-classroom?retryWrites=true&w=majority&appName=CLASSROOM', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-
 .then(() => {
   console.log('✅ Connected to MongoDB at', config.mongoUri)
 })
@@ -19,7 +18,7 @@ mongoose.connect('mongodb://localhost:27017/web-classroom', {
   console.error('❌ Failed to connect to MongoDB:', err)
   // Menampilkan error dan keluar dari proses
   process.exit(1)
-})
+});
 
 // Jalankan server setelah koneksi sukses
 app.listen(config.port, (err) => {
